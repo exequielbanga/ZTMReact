@@ -3,7 +3,6 @@ import { Fragment } from "react";
 
 import { ReactComponent as Logo } from '../../Assets/crown.svg';
 import LogoIcon from '../../Assets/Logo.png';
-
 import './navigation.styles.scss'
 
 const Navigation = () => {
