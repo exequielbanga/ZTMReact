@@ -52,8 +52,6 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
         const {displayName, email} = userAuth
         const createAt = Date()
 
-        console.log('Lets see ' + displayName + ' ' + email + ' ' + additionalInformation)
-
         try{
             setDoc(userDocRef,{
               displayName,

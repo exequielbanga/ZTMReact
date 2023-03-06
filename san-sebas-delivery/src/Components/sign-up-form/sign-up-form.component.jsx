@@ -16,6 +16,10 @@ const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields
 
+    const cleanForm = () =>{
+        setFormFields(defaultFormFields)
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (password != confirmPassword) {
@@ -25,6 +29,7 @@ const SignUpForm = () => {
         try {
             const {user} = await createAuthUserWithEmailAndPassword(email, password)
             const userDocReference = await createUserDocumentFromAuth(user,{ displayName })
+            cleanForm()
         } catch (error) {
             alert(error.message)
         }
