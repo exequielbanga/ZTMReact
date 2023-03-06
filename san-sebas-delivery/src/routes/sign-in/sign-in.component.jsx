@@ -3,6 +3,8 @@ import {
     createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils"
 
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component"
+
 import { useEffect } from "react"
 import { getRedirectResult } from "firebase/auth"
 import { async } from "@firebase/util"
@@ -19,6 +21,7 @@ import { async } from "@firebase/util"
         <div>
             <h1>Sign In Page</h1>
             <button onClick={logInGoogleUser}>Sign in with Google popup</button>
+            <SignUpForm/>
         </div>
     )
 }
