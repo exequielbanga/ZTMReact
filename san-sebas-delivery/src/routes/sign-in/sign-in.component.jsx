@@ -14,7 +14,6 @@ import { async } from "@firebase/util"
     const logInGoogleUser = async () => {
         const {user} = await signInWithGooglePopup()
         const userDocReference = await createUserDocumentFromAuth(user)
-
     }
 
     return(
