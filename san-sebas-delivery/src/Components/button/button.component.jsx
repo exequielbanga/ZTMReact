@@ -5,9 +5,9 @@ const BUTTONS_TYPE_CLASSES = {
     default: 'default'
 }
 
-const Button = ({children, buttonType}) =>{
+const Button = ({ children, buttonType, ...otherProps }) => {
     return (
-        <button className={`button-container ${BUTTONS_TYPE_CLASSES[buttonType]}`}>
+        <button className={`button-container ${BUTTONS_TYPE_CLASSES[buttonType]}`} {...otherProps}>
             {children}
         </button>
     )
