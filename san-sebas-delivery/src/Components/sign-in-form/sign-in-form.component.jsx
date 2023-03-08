@@ -40,7 +40,11 @@ const SignInForm = () => {
             console.log(user)
             cleanForm()
         } catch (error) {
-            alert(error.message)
+            console.log(error)
+            if (error.code == 'auth/user-not-found' ||
+            error.code == 'auth/wrong-password'){
+                alert("Wrong email or password")
+            }
         }
     }
 
@@ -56,10 +60,10 @@ const SignInForm = () => {
             <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput label="Email" type="email" onChange={handleChange} name="email" value={email} required />
-                <FormInput label="Password" input type="password" onChange={handleChange} name="password" value={password} required />
+                <FormInput label="Password" type="password" onChange={handleChange} name="password" value={password} required />
                 <div className="buttons-container">
                     <Button type="submit">Sign In</Button>
-                    <Button buttonType="google" onClick={signInWithGoogle} >Google Sign In</Button>
+                    <Button type="buton" buttonType="google" onClick={signInWithGoogle} >Google Sign In</Button>
                 </div>
             </form>
         </div>
