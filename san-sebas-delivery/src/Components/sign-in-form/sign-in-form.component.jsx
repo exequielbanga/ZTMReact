@@ -1,4 +1,9 @@
-import { useState } from "react"
+import {
+    useState,
+    useContext
+} from "react"
+
+import { UserContext } from "../context/user.context"
 
 import {
     signIn,
@@ -19,6 +24,7 @@ const defaultFormFields = {
 }
 
 const SignInForm = () => {
+    const {setCurrentUser} = useContext(UserContext)
 
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields
@@ -30,6 +36,7 @@ const SignInForm = () => {
     const signInWithGoogle = async () => {
         const { user } = await signInWithGooglePopup()
         const userDocReference = await createUserDocumentFromAuth(user)
+        setCurrentUser(user)
     }
 
 
@@ -38,11 +45,12 @@ const SignInForm = () => {
         try {
             const { user } = await signIn(email, password)
             console.log(user)
+            setCurrentUser(user)
             cleanForm()
         } catch (error) {
             console.log(error)
             if (error.code == 'auth/user-not-found' ||
-            error.code == 'auth/wrong-password'){
+                error.code == 'auth/wrong-password') {
                 alert("Wrong email or password")
             }
         }
