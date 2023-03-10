@@ -9,7 +9,6 @@ const App = () => {
       <Route path="/" element={<Navigation />}>
       <Route index element={<Home />} />
       <Route path="/auth" element={<Authentication />} />
-        
       </Route>
     </Routes>
   )
