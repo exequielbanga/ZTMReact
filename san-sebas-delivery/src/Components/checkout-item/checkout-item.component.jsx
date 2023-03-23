@@ -7,7 +7,6 @@ const CheckoutItem = ({ cartItem }) => {
 
     const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext)
 
-    //Question: why I cannot use clearItemFromCart directly?
     const clearItemHandler = () => {
         clearItemFromCart(cartItem)
     }
